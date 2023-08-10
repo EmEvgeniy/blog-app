@@ -1,0 +1,12 @@
+.Button{
+	background: #FFD050;
+	color: #000;
+	padding: 14px 40px;
+	font-size: 16px;
+	font-weight: 600;
+}
+.Button::after{
+	content: ">";
+	padding-left: 10px;
+	font-weight: 600;
+}

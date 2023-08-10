@@ -1,0 +1,18 @@
+.SearchInput{
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	background-color: #fff;
+	padding:  5px 10px;
+	max-width: 250px;
+}
+.SearchInput input {
+	border: none;
+	appearance: none; 
+	font-size: 14px;
+	width: 100%;
+	padding: 0 0 0 20px;
+}
+.SearchInput input:focus{
+	outline: none;
+}

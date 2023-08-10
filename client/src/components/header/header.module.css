@@ -1,0 +1,16 @@
+.header {
+	background-color: var(--second-bg);
+	color: #fff;
+	padding: 10px 0;
+}
+.inner {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.nav {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
