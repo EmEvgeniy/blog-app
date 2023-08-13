@@ -2,6 +2,7 @@ import { validationResult } from "express-validator";
 
 import CategoryModel from "../models/Category.js";
 
+
 export const create = async (req, res) => {
 	try {
 		const errors = validationResult(req);
@@ -14,11 +15,19 @@ export const create = async (req, res) => {
 			title: req.body.title,
 			popular: req.body.popular,
 		});
-		const category = await doc.save();
+		const title = await CategoryModel.findOne({
+			title: req.body.title,
+		});
 
-		res.json(category);
+		if(!title){
+			const category = await doc.save();
+			res.json(category);
+		}else{
+			res.status(403).json({
+				message: "Категория уже существует",
+			});
+		}
 	} catch (e) {
-		console.log(e);
 		res.status(500).json({
 			message: "Произошла ошибка",
 		});

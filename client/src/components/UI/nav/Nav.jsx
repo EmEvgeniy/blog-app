@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import classes from "./nav.module.css";
 import { useSelector } from "react-redux";
+import { motion } from "framer-motion";
 
 const Nav = () => {
 	const [list, setList] = useState([]);
@@ -20,11 +21,17 @@ const Nav = () => {
 		fn();
 	}, [fn]);
 	return (
-		<ul className={classes.Nav}>
+		<motion.ul
+			initial={{ opacity: 0 }}
+			animate={{ opacity: 1 }}
+			transition={{ delay: 0.2 }}
+			exit={{ opacity: 0 }}
+			className={classes.Nav}
+		>
 			{list.map((el, index) => (
 				<li key={index}>{el}</li>
 			))}
-		</ul>
+		</motion.ul>
 	);
 };
 

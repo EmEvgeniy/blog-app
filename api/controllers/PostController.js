@@ -22,10 +22,12 @@ export const create = async (req, res) => {
 		if (!title) {
 			const post = await doc.save();
 			return res.json(post);
+		}else{
+			res.status(403).json({
+				message: "Пост уже существует",
+			});
 		}
-		res.status(403).json({
-			message: "Пост уже существует",
-		});
+		
 	} catch (e) {
 		console.log(e);
 		res.status(500).json({

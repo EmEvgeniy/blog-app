@@ -33,9 +33,7 @@ const PostSchema = new mongoose.Schema({
 		required:true,
 		default: []
 	},
-	img:{
-		type: String
-	}
+	img:String
 },{
 	timestamps: true
 })

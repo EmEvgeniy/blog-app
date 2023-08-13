@@ -17,10 +17,11 @@ export const create = async (req, res) => {
 		if (!title) {
 			const country = await doc.save();
 			return res.json(country);
+		}else{
+			res.status(403).json({
+				message: "Статья уже существует",
+			});
 		}
-		res.status(403).json({
-			message: "Статья уже существует",
-		});
 	} catch (e) {
 		console.log(e);
 		res.status(500).json({

@@ -1,6 +1,7 @@
 .TopList{
+	flex: 1;
 	display: flex;
-	justify-content: space-between;
+	justify-content: flex-start;
 	align-items: center;
 }
 .TopList ul {

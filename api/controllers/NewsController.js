@@ -28,10 +28,12 @@ export const create = async (req, res) => {
 		if (!title) {
 			const news = await doc.save();
 			return res.json(news);
+		}else{
+			res.status(403).json({
+				message: "Новость уже существует",
+			});
 		}
-		res.status(403).json({
-			message: "Новость уже существует",
-		});
+	
 	} catch (e) {
 		console.log(e);
 		res.status(500).json({

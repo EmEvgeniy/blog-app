@@ -17,10 +17,12 @@ export const create = async (req, res) => {
 		if (!title) {
 			const city = await doc.save();
 			return res.json(city);
+		}else{
+			res.status(403).json({
+				message: "Город уже существует",
+			});
 		}
-		res.status(403).json({
-			message: "Город уже существует",
-		});
+		
 	} catch (e) {
 		console.log(e);
 		res.status(500).json({
