@@ -23,7 +23,17 @@ mongoose
 
 const app = express();
 
-app.use(cors());
+const allowedOrigins = ['http://puputravel.com'];
+
+app.use(cors({
+  origin: function (origin, callback) {
+    if (allowedOrigins.includes(origin) || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  }
+}));
 const storage = multer.diskStorage({
 	destination: (_, __, cb) => {
 		cb(null, "uploads");
