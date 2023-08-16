@@ -5,10 +5,10 @@
     "description": "My blog API",
     "version": "1.0.0"
   },
-  "host": "localhost:8000",
+  "host": "api.puputravel.com:8000",
   "basePath": "/",
   "schemes": [
-    "http"
+    "https"
   ],
   "paths": {
     "/upload": {
