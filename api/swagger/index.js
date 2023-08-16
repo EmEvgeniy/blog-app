@@ -19,8 +19,8 @@ const doc = {
 	},
 	// что-то типа моделей
 	definitions: {},
-	host: "https://api.puputravel.com/:8000",
-	schemes: ["https"],
+	host: "http://api.puputravel.com/:8000",
+	schemes: ["http"],
 };
 
 swaggerAutogen(/*options*/)(outputFile, endpointsFiles, doc).then(

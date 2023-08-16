@@ -21,19 +21,9 @@ mongoose
 	})
 	.catch(e => console.log("DB error!", e));
 
-	const allowedOrigins = ['http://puputravel.com'];
+const app = express();
 
-	app.use(cors({
-		origin: function (origin, callback) {
-			if (allowedOrigins.includes(origin) || !origin) {
-				callback(null, true);
-			} else {
-				callback(new Error('Not allowed by CORS'));
-			}
-		}
-	}));
-
-
+app.use(cors());
 const storage = multer.diskStorage({
 	destination: (_, __, cb) => {
 		cb(null, "uploads");
