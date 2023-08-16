@@ -8,10 +8,9 @@ import PostRouter from "./routes/post.routes.js";
 import checkAuth from "./utils/checkAuth.js";
 import CityRouter from "./routes/city.routes.js";
 import NewsRouter from "./routes/news.routes.js";
-import cors from 'cors'
-import fs from 'fs'
-import swaggerUi from 'swagger-ui-express'
-
+import cors from "cors";
+import fs from "fs";
+import swaggerUi from "swagger-ui-express";
 
 mongoose
 	.connect(
@@ -24,7 +23,6 @@ mongoose
 
 const app = express();
 
-
 app.use(cors());
 const storage = multer.diskStorage({
 	destination: (_, __, cb) => {
@@ -36,10 +34,9 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage });
-const swaggerFile = JSON.parse(fs.readFileSync('./swagger/output.json'))
+const swaggerFile = JSON.parse(fs.readFileSync("./swagger/output.json"));
 app.use(express.json());
 app.use("/uploads", express.static("uploads"));
-
 
 app.post("/upload", checkAuth, upload.single("image"), (req, res) => {
 	res.json({
@@ -52,11 +49,10 @@ app.use("/api", CountryRouter);
 app.use("/api", PostRouter);
 app.use("/api", CityRouter);
 app.use("/api", NewsRouter);
-app.use('/api-doc', swaggerUi.serve, swaggerUi.setup(swaggerFile))
+app.use("/api-doc", swaggerUi.serve, swaggerUi.setup(swaggerFile));
 app.listen(8000, e => {
 	if (e) {
 		return console.log(e);
 	}
-
 	console.log("Server ok!");
 });
