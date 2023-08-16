@@ -23,7 +23,7 @@ mongoose
 
 const app = express();
 
-const allowedOrigins = ['http://puputravel.com'];
+const allowedOrigins = ['https://puputravel.com'];
 
 app.use(cors({
   origin: function (origin, callback) {
