@@ -19,7 +19,7 @@ const doc = {
 	},
 	// что-то типа моделей
 	definitions: {},
-	host: "http://api.puputravel.com/:8000",
+	host: "api.puputravel.com:8000",
 	schemes: ["http"],
 };
 
