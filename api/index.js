@@ -33,7 +33,7 @@ mongoose
 		}
 	}));
 
-app.use(cors());
+
 const storage = multer.diskStorage({
 	destination: (_, __, cb) => {
 		cb(null, "uploads");
