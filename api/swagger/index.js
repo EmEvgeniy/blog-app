@@ -20,7 +20,7 @@ const doc = {
 	// что-то типа моделей
 	definitions: {},
 	host: "localhost:8000",
-	schemes: ["http"],
+	schemes: ["https"],
 };
 
 swaggerAutogen(/*options*/)(outputFile, endpointsFiles, doc).then(
