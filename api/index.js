@@ -53,12 +53,12 @@ app.post("/upload", checkAuth, upload.single("image"), (req, res) => {
 		url: `/uploads/${req.file.originalname}`,
 	});
 });
-app.use("/api", AuthRouter);
-app.use("/api", CategoryRouter);
-app.use("/api", CountryRouter);
-app.use("/api", PostRouter);
-app.use("/api", CityRouter);
-app.use("/api", NewsRouter);
+app.use("/api",cors(), AuthRouter);
+app.use("/api",cors(), CategoryRouter);
+app.use("/api",cors(), CountryRouter);
+app.use("/api",cors(), PostRouter);
+app.use("/api",cors(), CityRouter);
+app.use("/api",cors(), NewsRouter);
 app.use("/api-doc", swaggerUi.serve, swaggerUi.setup(swaggerFile));
 app.listen(8000, e => {
 	if (e) {
