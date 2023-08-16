@@ -21,7 +21,7 @@ mongoose
 	})
 	.catch(e => console.log("DB error!", e));
 
-	const allowedOrigins = ['https://puputravel.com', 'https://api.puputravel.com'];
+	const allowedOrigins = ['http://puputravel.com'];
 
 	app.use(cors({
 		origin: function (origin, callback) {
