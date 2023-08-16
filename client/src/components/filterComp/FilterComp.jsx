@@ -15,7 +15,7 @@ const FilterComp = () => {
 		if (lang === "RU") {
 			setTitle("Выбирите категори");
 		} else {
-			setTitle("Choose A Categor");
+			setTitle("Choose A Categr");
 		}
 	}, [lang]);
 
