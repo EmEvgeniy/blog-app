@@ -1,23 +1,22 @@
-FROM node:lts as build
+FROM node:18 AS build
 
-WORKDIR /client
+WORKDIR /app
 
-COPY package.json .
-
-RUN npm i
+COPY package*.json ./
+RUN npm install
 
 COPY . .
-
 RUN npm run build
 
-# NGINX
+# Этап 2: развертывание с использованием Nginx
+FROM nginx:alpine
 
-FROM nginx:1.25
+# Копируем ваш файл конфигурации
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-COPY --from=build /client/build /usr/share/nginx/html
-COPY .nginx/*.conf /etc/nginx/conf.d/
+# Копируем статические файлы из этапа сборки
+COPY --from=build /app/dist /usr/share/nginx/html
 
-# RUN cat /etc/nginx/conf.d/default.conf
-RUN rm /etc/nginx/conf.d/default.conf
+EXPOSE 80
 
 CMD ["nginx", "-g", "daemon off;"]

@@ -14,7 +14,7 @@ services:
     build: 
       context: ./client
     ports:
-      - "3000:3000"
+      - "8081:80"
     networks:
       - admin-js
 networks:
