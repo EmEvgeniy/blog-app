@@ -2,12 +2,13 @@ FROM node:18 AS build
 
 WORKDIR /app
 
-COPY package*.json .
+COPY package.json .
 RUN npm install
 
 COPY . .
-# RUN npm run build
-CMD ["npm", "run", "build"]
+
+RUN npm run build
+# CMD ["npm", "run", "build"]
 # Этап 2: развертывание с использованием Nginx
 FROM nginx:alpine
 
