@@ -1,0 +1,21 @@
+.DefPage {
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+
+	background: url("https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif");
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	/* height: 400px; */
+	background-position: center;
+}
+.inner {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #000;
+}
