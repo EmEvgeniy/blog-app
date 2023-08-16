@@ -13,7 +13,7 @@ const FilterComp = () => {
 
 	useEffect(() => {
 		if (lang === "RU") {
-			setTitle("Выбирите категорию");
+			setTitle("Выбирите категори");
 		} else {
 			setTitle("Choose A Categories");
 		}
