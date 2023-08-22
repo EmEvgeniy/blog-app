@@ -11,10 +11,8 @@ import NewsRouter from "./routes/news.routes.js";
 import cors from "cors";
 import fs from "fs";
 import swaggerUi from "swagger-ui-express";
-import TelegramBot from "node-telegram-bot-api";
 import setupTelegramBot from "./tg/Telegram.js";
 
-const botToken = "6526594197:AAF3YJQCuKx4lvXy3GUDjqgYUDIrAZYc9fU";
 
 mongoose
 	.connect(
@@ -24,7 +22,6 @@ mongoose
 		console.log("DB connected");
 	})
 	.catch((e) => console.log("DB error!", e));
-const bot = new TelegramBot(botToken, { polling: true });
 const app = express();
 
 // const allowedOrigins = ['https://puputravel.com'];
