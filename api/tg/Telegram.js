@@ -33,7 +33,8 @@ const setupTelegramBot = () => {
         userStack.push(mainMenuKeyboard); // Сохраняем текущее меню в стеке
         await bot.sendMessage(msg.chat.id, "Список городов", {
           reply_markup: {
-            keyboard: [...cities.map((el) => el.title), ...backKeyboard],
+            keyboard: [cities.map((el) => el.title), backKeyboard],
+						resize_keyboard:true
           },
         });
       } else if (msg.text == "Назад" && userStack.length > 0) {
@@ -48,7 +49,7 @@ const setupTelegramBot = () => {
         userStack.push(mainMenuKeyboard); // Сохраняем текущее меню в стеке
         await bot.sendMessage(msg.chat.id, "Список городов", {
           reply_markup: {
-            keyboard: [...cities.map((el) => el.title), ...backKeyboard],
+            keyboard: [cities.map((el) => el.title), backKeyboard],
           },
         });
       } else if (cities.some((city) => city.title === msg.text)) {
