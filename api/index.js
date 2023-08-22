@@ -27,17 +27,9 @@ mongoose
 const bot = new TelegramBot(botToken, { polling: true });
 const app = express();
 
-const allowedOrigins = ['https://puputravel.com'];
+// const allowedOrigins = ['https://puputravel.com'];
 
-app.use(cors({
-  origin: function (origin, callback) {
-    if (allowedOrigins.includes(origin) || !origin) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  }
-}));
+app.use(cors());
 const storage = multer.diskStorage({
 	destination: (_, __, cb) => {
 		cb(null, "uploads");
