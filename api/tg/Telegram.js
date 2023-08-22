@@ -2,7 +2,7 @@
 import TelegramBot from "node-telegram-bot-api";
 import CityModel from "../models/City.js";
 
-const botToken = "YOUR_BOT_TOKEN_HERE";
+const botToken = "6526594197:AAF3YJQCuKx4lvXy3GUDjqgYUDIrAZYc9fU";
 
 const bot = new TelegramBot(botToken, { polling: true });
 
